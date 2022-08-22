@@ -10,7 +10,7 @@ def genViewFolder(jobPath)
     Jenkins jenkins = Jenkins.instance // saves some typing
     def folder = jenkins.getItem(folders[0])
     //folder = jenkins.createProject(Folder.class, folders[0])
-    folders = folders[1..-1]
+    //folders = folders[1..-1]
 
     folders.each { folderName ->
         if (folder.getItem(folderName) == null) 

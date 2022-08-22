@@ -10,6 +10,7 @@ def genViewFolder(folderName)
         if (folder == null) {
             // Create the folder if it doesn't exist or if no existing job has the same name
             folder = jenkins.createProject(Folder.class, folderName)
+            folder.createProject(Folder.class, 'SUHA')
             }
 
 }
@@ -18,7 +19,7 @@ def call() {
    
     List dslScripts = []
     //String folderName = "KLOBASA"
-    def direktorij = 'SALAMAjob/SUHA'
+    def direktorij = 'SALAMA'
 
     node('master') {
 

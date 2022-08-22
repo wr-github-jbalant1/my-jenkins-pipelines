@@ -1,8 +1,12 @@
 import org.kohsuke.github.*
+import com.cloudbees.hudson.plugins.folder.*
+import jenkins.model.Jenkins
 
 def call() {
    
     List dslScripts = []
+    Jenkins jenkins = Jenkins.instance // saves some typing
+    String folderName = "KLOBASA"
 
     node('master') {
 
@@ -13,8 +17,11 @@ def call() {
 
         stage('Create') {
             println("Create jobs from DSL scripts ...")
-            //folder('folder-a') { description('Folder containing all jobs for folder-a')  }
-                jobDsl scriptText: "folder('New Folder')"
+            def folder = jenkins.getItem(folderName)
+            if (folder == null) {
+            // Create the folder if it doesn't exist or if no existing job has the same name
+            folder = jenkins.createProject(Folder.class, folderName)
+            }
         }
     }
 }

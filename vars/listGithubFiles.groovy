@@ -29,8 +29,8 @@ def genViewFolder(jobPath)
 def call() {
    
     List dslScripts = []
-    //String folderName = "KLOBASA"
-    def thisJobPath = 'SALAMA'
+    //String folderName = "KLOBASA/pikantna/mehka"
+    def thisJobPath = 'SALAMA/pikantna'
 
     node('master') {
 

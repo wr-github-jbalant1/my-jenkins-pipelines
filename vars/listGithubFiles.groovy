@@ -29,6 +29,7 @@ def genViewFolder(jobPath)
 def call() {
    
     List dslScripts = []
+    def myViewPath = ''
 
     node('master') {
 
@@ -39,8 +40,12 @@ def call() {
 
         stage('Create') {
             println("Create jobs from DSL scripts ...")
-            genViewFolder('SALAMA/pikantna')
-            genViewFolder('HRENOVKA/piscancja/pikantna')
+            myViewPath = 'SALAMA/pikantna'
+            println("Creating view folder: "+myViewPath)
+            genViewFolder(myViewPath)
+            myViewPath = 'HRENOVKA/piscancja/pikantna'
+            println("Creating view folder: "+myViewPath)
+            genViewFolder(myViewPath)
             
 
         }

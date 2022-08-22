@@ -13,7 +13,8 @@ def genViewFolder(jobPath)
     //folders = folders[1..-1]
 
     folders.each { folderName ->
-        if (folder.getItem(folderName) == null) 
+        folder = folder.getItem(folderName) 
+        if (folder == null) 
         {
             // Create the folder if it doesn't exist or if no existing job has the same name
             println("Exist : NO  (trying to create '"+folderName+"')")

@@ -29,9 +29,6 @@ def genViewFolder(jobPath)
 def call() {
    
     List dslScripts = []
-    //String folderName = "KLOBASA/pikantna/mehka"
-    def thisJobPath = 'SALAMA/pikantna'
-    def thisJobPath = 'HRENOVKA/piscancja/pikantna'
 
     node('master') {
 
@@ -42,7 +39,8 @@ def call() {
 
         stage('Create') {
             println("Create jobs from DSL scripts ...")
-            genViewFolder(thisJobPath)
+            genViewFolder('SALAMA/pikantna')
+            genViewFolder('HRENOVKA/piscancja/pikantna')
             
 
         }

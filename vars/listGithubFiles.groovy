@@ -23,7 +23,7 @@ def genViewFolder(jobPath)
             if(firstCheck) 
                 { 
                     folder = jenkins.createProject(Folder.class, folderName) 
-                    firstCheck = false
+                    //firstCheck = false
                 }
             else
                 {   

@@ -28,8 +28,8 @@ def call() {
 
         stage('Create') {
             println("Create jobs from DSL scripts ...")
-            genViewFolder("KLOBASA")
-            genViewFolder("SALAMA/SUHA")
+            genViewFolder("KLOBASA/Kuhana")
+            //genViewFolder("SALAMA/SUHA")
             
 
         }

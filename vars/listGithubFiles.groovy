@@ -14,6 +14,7 @@ def genViewFolder(jobPath)
 
     folders.each { folderName ->
         println("Folder: "+folderName)
+        folder.createProject(Folder.class, folderName)
         if (folder.getItem(folderName) == null) 
         {
             // Create the folder if it doesn't exist or if no existing job has the same name

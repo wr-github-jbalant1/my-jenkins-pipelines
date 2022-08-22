@@ -14,9 +14,7 @@ def call() {
         stage('Create') {
             println("Create jobs from DSL scripts ...")
             //folder('folder-a') { description('Folder containing all jobs for folder-a')  }
-            steps{
                 jobDsl scriptText: "folder('New Folder')"
-            }
         }
     }
 }

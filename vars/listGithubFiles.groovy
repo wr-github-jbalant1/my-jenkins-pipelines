@@ -8,16 +8,20 @@ def genViewFolder(jobPath)
 
     def folders = jobPath.split('/');
     Jenkins jenkins = Jenkins.instance // saves some typing
-    //def folder = jenkins.getItem(folderName)
-    folder = jenkins.createProject(Folder.class, folders[0])
+    def folder = jenkins.getItem(folders[0])
+    //folder = jenkins.createProject(Folder.class, folders[0])
     folders = folders[1..-1]
 
     folders.each { folderName ->
-        
-        //if (folder == null) {
+        if (folder.getItem(folderName) == null) 
+        {
             // Create the folder if it doesn't exist or if no existing job has the same name
             folder = folder.createProject(Folder.class, folderName)
-        //}
+        }
+        else
+        {
+            folder = folder.getItem(folderName)
+        }
     }
 
 }

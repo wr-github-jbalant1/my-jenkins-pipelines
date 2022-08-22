@@ -16,10 +16,12 @@ def genViewFolder(jobPath)
         if (folder.getItem(folderName) == null) 
         {
             // Create the folder if it doesn't exist or if no existing job has the same name
+            println("Exist : NO  (trying to create '"+folderName+"')")
             folder = folder.createProject(Folder.class, folderName)
         }
         else
         {
+            println("Exist : YES (skipping creation '"+folderName+"')")
             folder = folder.getItem(folderName)
         }
     }

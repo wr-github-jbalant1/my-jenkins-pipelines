@@ -18,6 +18,7 @@ def call() {
    
     List dslScripts = []
     //String folderName = "KLOBASA"
+    def direktorij = 'SALAMA/SUHA'
 
     node('master') {
 
@@ -28,8 +29,7 @@ def call() {
 
         stage('Create') {
             println("Create jobs from DSL scripts ...")
-            genViewFolder("KLOBASA/Kuhana")
-            //genViewFolder("SALAMA/SUHA")
+            genViewFolder(direktorij)
             
 
         }

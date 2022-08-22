@@ -31,6 +31,7 @@ def call() {
     List dslScripts = []
     //String folderName = "KLOBASA/pikantna/mehka"
     def thisJobPath = 'SALAMA/pikantna'
+    def thisJobPath = 'HRENOVKA/piscancja/pikantna'
 
     node('master') {
 

@@ -3,15 +3,22 @@ import com.cloudbees.hudson.plugins.folder.*
 import jenkins.model.Jenkins
 
 
-def genViewFolder(folderName)
+def genViewFolder(jobPath)
 {
+
+    def folders = jobPath.split('/');
     Jenkins jenkins = Jenkins.instance // saves some typing
-    def folder = jenkins.getItem(folderName)
-        if (folder == null) {
+    //def folder = jenkins.getItem(folderName)
+    folder = jenkins.createProject(Folder.class, folders[0])
+    folders = folders[1..-1]
+
+    folders.each { folderName ->
+        
+        //if (folder == null) {
             // Create the folder if it doesn't exist or if no existing job has the same name
-            folder = jenkins.createProject(Folder.class, folderName)
-            folder.createProject(Folder.class, 'SUHA')
-            }
+            folder = folder.createProject(Folder.class, folderName)
+        //}
+    }
 
 }
 
@@ -19,7 +26,7 @@ def call() {
    
     List dslScripts = []
     //String folderName = "KLOBASA"
-    def direktorij = 'SALAMA'
+    def thisJobPath = 'SALAMA'
 
     node('master') {
 
@@ -30,7 +37,7 @@ def call() {
 
         stage('Create') {
             println("Create jobs from DSL scripts ...")
-            genViewFolder(direktorij)
+            genViewFolder(thisJobPath)
             
 
         }

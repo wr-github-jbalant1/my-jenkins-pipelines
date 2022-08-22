@@ -18,7 +18,7 @@ def call() {
    
     List dslScripts = []
     //String folderName = "KLOBASA"
-    def direktorij = 'SALAMA/SUHA'
+    def direktorij = 'SALAMAjob/SUHA'
 
     node('master') {
 

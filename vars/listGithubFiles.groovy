@@ -43,7 +43,6 @@ def genViewFolder(jobPath)
                         //folder = folder.getProject(folders[idx])
                     }
             }
-
     }
 
 }

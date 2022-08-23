@@ -24,12 +24,14 @@ def genViewFolder(jobPath)
             println("Exist : NO  (trying to create '"+folderName+"')")
             if(firstCheck) 
                 { 
-                    folder = jenkins.createProject(Folder.class, folderName) 
+                    folder = jenkins.createProject(Folder.class, folderName)
+                    folder = folder.getItem(folderName)                    
                     firstCheck = false
                 }
             else
                 {   
                     folder = folder.createProject(Folder.class, folderName)
+                    folder = folder.getItem(folderName)
                 }
         }
         else

@@ -15,8 +15,8 @@ def genViewFolder(jobPath)
 
         if(idx == 0) 
             { 
-                folder = jenkins.getItem(folders[idx]);         
-                if (folder == null) 
+                         
+                if (jenkins.getItem(folders[idx]) == null) 
                 {
                 
                     print("Exist : NO  (trying to create '"+folders[idx]+"') ")
@@ -29,8 +29,7 @@ def genViewFolder(jobPath)
             }
         else
             {
-                folder = folder.getItem(folders[idx]);         
-                if (folder == null) 
+                if (folder.getItem(folders[idx]) == null) 
                 {
                 
                     print("Exist : NO  (trying to create '"+folders[idx]+"') ")

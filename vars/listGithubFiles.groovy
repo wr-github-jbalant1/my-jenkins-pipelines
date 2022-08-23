@@ -20,15 +20,11 @@ def genViewFolder(jobPath)
                 {
                 
                     print("Exist : NO  (trying to create '"+folders[idx]+"') ")
-                    jenkins.createProject(Folder.class, folders[idx])
-                    folder = jenkins.getItem(folders[idx])                    
-                            
-                  
+                    folder = jenkins.createProject(Folder.class, folders[idx])
                 }
                 else
                 {
-                    println("Exist : YES (skipping creation '"+folders[idx]+"')")
-                    folder = folder.getItem(folders[idx])
+                    println("Exist : YES (skipping creation '"+folders[idx]+"')")                    
                 }
             }
         else
@@ -38,15 +34,11 @@ def genViewFolder(jobPath)
                 {
                 
                     print("Exist : NO  (trying to create '"+folders[idx]+"') ")
-                    jenkins.createProject(Folder.class, folders[idx])
-                    folder = folder.getItem(folders[idx])                    
-                            
-                  
+                    folder= folder.createProject(Folder.class, folders[idx])                  
                 }
                 else
                 {
                     println("Exist : YES (skipping creation '"+folders[idx]+"')")
-                    folder = folder.getItem(folders[idx])
                 }
             }
 

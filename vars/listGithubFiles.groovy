@@ -24,7 +24,8 @@ def genViewFolder(jobPath)
                     }
                 else
                     {
-                        println("    Exist : YES (skipping creation '"+folders[idx]+"')")                    
+                        println("    Exist : YES (skipping creation '"+folders[idx]+"')")
+                        folder = folder.getProject(Folder.class, folders[idx])                    
                     }
             }
         else

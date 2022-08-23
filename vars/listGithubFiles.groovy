@@ -9,36 +9,46 @@ def genViewFolder(jobPath)
     def folders = jobPath.split('/');
     Jenkins jenkins = Jenkins.instance // saves some typing
     def folder = null
-    def firstCheck = true
 
-    folder = jenkins.getItem(folders[0]); 
+    folders.eachWithIndex { folderName, idx -> ​​​​​​​​​​​​​​
+        println("Folder: "+folders[idx])
 
-    folders.each { folderName ->
-        println("Folder: "+folderName)
-
-        //if(firstCheck) { folder = jenkins.getItem(folderName);  }
-        
-        if (folder == null) 
-        {
-            // Create the folder if it doesn't exist or if no existing job has the same name
-            println("Exist : NO  (trying to create '"+folderName+"')")
-            if(firstCheck) 
-                { 
-                    folder = jenkins.createProject(Folder.class, folderName)
-                    folder = folder.getItem(folderName)                    
-                    firstCheck = false
+        if(idx == 0) 
+            { 
+                folder = jenkins.getItem(folders[idx]);         
+                if (folder == null) 
+                {
+                
+                    print("Exist : NO  (trying to create '"+folders[idx]+"') ")
+                    jenkins.createProject(Folder.class, folders[idx])
+                    folder = jenkins.getItem(folders[idx])                    
+                            
+                  
                 }
-            else
-                {   
-                    folder = folder.createProject(Folder.class, folderName)
-                    folder = folder.getItem(folderName)
+                else
+                {
+                    println("Exist : YES (skipping creation '"+folders[idx]+"')")
+                    folder = folder.getItem(folders[idx])
                 }
-        }
+            }
         else
-        {
-            println("Exist : YES (skipping creation '"+folderName+"')")
-            folder = folder.getItem(folderName)
-        }
+            {
+                folder = folder.getItem(folders[idx]);         
+                if (folder == null) 
+                {
+                
+                    print("Exist : NO  (trying to create '"+folders[idx]+"') ")
+                    jenkins.createProject(Folder.class, folders[idx])
+                    folder = folder.getItem(folders[idx])                    
+                            
+                  
+                }
+                else
+                {
+                    println("Exist : YES (skipping creation '"+folders[idx]+"')")
+                    folder = folder.getItem(folders[idx])
+                }
+            }
 
     }
 

@@ -10,7 +10,7 @@ def genViewFolder(jobPath)
     Jenkins jenkins = Jenkins.instance // saves some typing
     def folder = null
 
-    folders.eachWithIndex { folderName, idx -> ​​​​​​​​​​​​​​
+    folders.eachWithIndex { folderName, idx ->
         println("Folder: "+folders[idx])
 
         if(idx == 0) 

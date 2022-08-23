@@ -39,7 +39,7 @@ def genViewFolder(jobPath)
                 else
                     {
                         println("    Exist : YES (skipping creation '"+folders[idx]+"')")
-                        folder = folder.getDescriptor()
+                        folder = folder.getItem(folders[idx])
                         //folder = folder.getProject(folders[idx])
                     }
             }

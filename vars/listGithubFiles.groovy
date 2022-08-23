@@ -11,10 +11,12 @@ def genViewFolder(jobPath)
     def folder = null
     def firstCheck = true
 
+    folder = jenkins.getItem(folders[0]); 
+
     folders.each { folderName ->
         println("Folder: "+folderName)
 
-        if(firstCheck) { folder = jenkins.getItem(folderName);  }
+        //if(firstCheck) { folder = jenkins.getItem(folderName);  }
         
         if (folder == null) 
         {
@@ -23,7 +25,7 @@ def genViewFolder(jobPath)
             if(firstCheck) 
                 { 
                     folder = jenkins.createProject(Folder.class, folderName) 
-                    //firstCheck = false
+                    firstCheck = false
                 }
             else
                 {   
